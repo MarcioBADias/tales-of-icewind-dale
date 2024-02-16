@@ -1,13 +1,81 @@
+import * as C from './style'
+const tenTowers = [
+  {
+    id: crypto.randomUUID(),
+    cityName: 'bremen',
+    active: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'bryn-shander',
+    active: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'caer-dinerval',
+    active: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'caern-koing',
+    active: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'dougans-hole',
+    active: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'easthaven',
+    active: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'good-mead',
+    active: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'lonelywood',
+    active: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'targos',
+    active: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    cityName: 'termalaine',
+    active: false,
+  },
+]
 const Scenario = () => (
-  <section className="cenario">
-    <h3 className="cenario__titulo">Dez-Burgo</h3>
-    <div className="cenario__itens">
-      <ul className="cenario__card">
-        {/* Aqui seria onde você renderizaria os cards do cenário usando um loop */}
-        {/* Exemplo: cenario.map(local => <CenarioCard key={local.id} {...local} />) */}
-      </ul>
+  <C.Scenario>
+    <C.Tittle>Dez-Burgo</C.Tittle>
+    <div>
+      <C.Card>
+        {tenTowers.map(({ id, cityName, active }) => (
+          <C.MapArea key={id}>
+            {active ? (
+              <C.MiniMapColor
+                src={`scenario-maps/${cityName}.png`}
+                alt={cityName}
+              />
+            ) : (
+              <C.MiniMapPnB
+                src={`scenario-maps/${cityName}.png`}
+                alt={cityName}
+              />
+            )}
+
+            <h4>{cityName}</h4>
+          </C.MapArea>
+        ))}
+      </C.Card>
     </div>
-  </section>
+  </C.Scenario>
 )
 
 export { Scenario }

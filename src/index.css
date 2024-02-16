@@ -27,7 +27,6 @@ button:hover {
   cursor: pointer;
 }
 
-body {
+html {
   background: url(BGICE.jpg) center / cover no-repeat;
-  height: 100vh;
 }
